@@ -1,0 +1,483 @@
+.header-plugin{
+	background: #ffffff;
+	width: 100%;
+	padding: 10px;
+	box-sizing: border-box;
+	float: left;
+	font-size: 13pt;
+	margin-bottom: 10px;
+}
+.tabs-main{
+	box-sizing: border-box;
+	width: 100%;
+	float: left;
+}
+.tab-label:last-of-type {
+	border-top-color: #d1e2fd;
+}
+.tab-label{
+	background: #fafafa;
+	width: auto;
+	float: left;
+	font-size: 11pt;
+	border-top: solid 3px #ffffff;
+	border-bottom: solid 1px #cccccc;
+	transition: 0.4s all;
+}
+.tab-label:hover{
+	opacity: 0.8;
+}
+.tab-label.active{
+	background: #eee;
+	border-top: solid 3px #4284f4;
+	pointer-events: none;
+	cursor: default;
+}
+.tab-label:last-of-type {
+	float: right;
+	background: #d1e2fd;
+}
+.tab-label a{
+	text-decoration: none;
+	width: 100%;
+	float: left;
+	padding: 8px 16px;
+	box-sizing: border-box;
+	font-size: 16px;
+	outline: none !important;
+	text-align: center;
+}
+
+.tab-label a:focus { outline: none !important; border: none; }
+.tabs-main{
+	width: 100%;
+	float: left;
+	box-shadow: 0 1px 3px #666666;
+	box-sizing: border-box;
+}
+.tab-section{
+	float: left;
+	width: 100%;
+	box-sizing: border-box;
+	background: #ffffff;
+}
+.tabs-main.about{
+	text-align: center;
+}
+.about .tab-section{
+	padding: 20px 0;
+}
+.tabs-main .profile-image{
+	border-radius: 100px;
+}
+.about .helpful-links{
+	background: #eeeeee;
+	width: 100%;
+	float: left;
+	padding: 10px 0;
+	padding-bottom: 0;
+	box-sizing: border-box;
+}
+
+.about .helpful-links ul li{
+	display: inline-block;
+	margin-left:15px;
+	font-size: 13px;
+}
+
+
+.tab-section .warning, .tab-section .success, .tab-section .info
+{
+	font-weight: 600;
+	font-size: 13pt;
+	width: 100%;
+	box-sizing: border-box;
+	padding: 16px;
+	float: left;
+}
+.tab-section .warning
+{
+	background: #fe9601;
+	color: #ffffff;
+}
+.tab-section .success
+{
+	background: #1eb352;
+	color: #ffffff;
+}
+.tab-section .info
+{
+	background: #4284f4;
+	color: #ffffff;
+}
+.tab-section .close-btn{
+	cursor: pointer;
+	font-size: 22pt;
+	font-weight: bold;
+	float: right;
+}
+
+.tab-section .field:first{
+	border-top: 1px solid #cccccc;
+}
+.tab-section .field, .form-footer{
+	box-sizing: border-box;
+	padding: 15px;
+	width: 100%;
+	float: left;
+	background: #ffffff;
+	transition: 0.3s all ease;
+	border-bottom: 1px solid #cccccc;
+}
+.tab-section .field:hover{
+	background: #eee;
+}
+.tab-section .field .label{
+	font-weight: bold;
+	text-transform: uppercase;
+	width: 100%;
+	float: left;
+}
+.tab-section .field .small{
+	width: 100%;
+	float: left;
+	font-style: italic;
+	font-size: 16px;
+	color: #777777;
+}
+
+.switchContainer {
+	position: relative;
+	display: inline-block;
+	width: 70px;
+	height: 34px;
+	margin: 10px 0;
+}
+
+.switchContainer input { 
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+
+.sliderContainer {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #ccc;
+	-webkit-transition: .4s;
+	transition: .4s;
+}
+
+.sliderContainer:before {
+	position: absolute;
+	content: "";
+	height: 26px;
+	width: 26px;
+	left: 4px;
+	bottom: 4px;
+	background-color: white;
+	-webkit-transition: .4s;
+	transition: .4s;
+}
+
+input:checked + .sliderContainer {
+	background-color: #4284f4;
+}
+
+input:focus + .sliderContainer {
+	box-shadow: 0 0 1px #4284f4;
+}
+
+input:checked + .sliderContainer:before {
+	-webkit-transform: translateX(35px);
+	-ms-transform: translateX(35px);
+	transform: translateX(35px);
+}
+
+/* Rounded sliderContainers */
+.sliderContainer.round {
+	border-radius: 34px;
+}
+
+.sliderContainer.round:before {
+	border-radius: 50%;
+}
+.minify-off{
+	padding: 2px 10px;
+	color: #ffffff;
+	background: #f44336;
+}
+.minify-on{
+	padding: 2px 10px;
+	color: #ffffff;
+	background: #25ce60;
+}
+.all_in_one_minifier_tables tbody tr td{
+	text-align: left !important;
+}
+.all_in_one_minifier_tables .right{
+	/*float: right;*/
+}
+.color_red{
+	color: #eb1e2e;
+	font-weight: bolder;
+}
+.color_green{
+	color: #54b058;
+	font-weight: bolder;
+}
+.reportPagination{
+	padding: 10px 6px;
+	float: left;
+	width: 100%;
+	border-top: solid 1px #000000;
+	box-sizing: border-box;
+	text-align: left;
+}
+
+.reportPagination span{
+	margin-left: 12px;
+	margin-right: 12px;
+	display: inline-block;
+	vertical-align: middle;
+}
+.reportPagination a{
+	background: #e8eaf9;
+	border: solid 1px #c5cbf8;
+	padding: 4px 12px;
+	margin: 4px 0;
+	margin-right: 4px;
+	text-decoration: none;
+	display: inline-block;
+}
+.reportPagination .current{
+	background: #e8eaf9;
+	border: solid 1px #c5cbf8;
+	padding: 4px 12px;
+	margin-left: 0;
+	margin-right: 4px;
+	text-decoration: none;
+	cursor: not-allowed;
+	opacity: 0.5;
+}
+.reportPagination .pages{
+	float: right;
+}
+.reportPagination form{
+	display: inline-block;
+}
+.reportPagination select{
+	margin-right: 5px;
+}
+@media only screen and (max-width: 819px) {
+	.reportPagination .pages{
+		margin-top: 10px;
+		width: 100%;
+		text-align: center;
+	}
+}
+
+@media only screen and (max-width: 768px) {
+	.reportPagination .pages{
+		margin-top: 10px;
+		width: 100%;
+		text-align: center;
+	}
+	.tab-label{
+		width: 100%;
+	}
+	.tab-label a{
+		text-align: left;
+	}
+	.tab-label.active{
+		border-top: solid 3px #eeeeee;
+	}
+	.tab-label:last-of-type {
+		float: inherit;
+	}
+}
+.scroll-bar-table{
+	width: 100%;
+}
+.scroll-bar-table, .scroll-bar-table table, .scroll-bar-table tr, .scroll-bar-table td {
+	border: solid 1px #ccc;
+	padding: 4px;
+	border-collapse: collapse;
+}
+
+.scroll-bar-table td{
+	text-align: center;
+}
+
+.scroll-bar{
+	width: 80%;
+	height: 20px;
+	position: relative;
+	display: block;
+	margin: 0 auto;
+}
+.scroller{
+	height: 20px;
+	width: 30%;
+	position: absolute;
+	top: 0;
+	left: 15%;
+}
+.scorll-theme{
+	overflow: hidden;
+	padding:0 12px;
+}
+.scorll-theme:after{
+	content: '';
+	padding:0 8px;
+}
+.color_default{
+	background: #ccc;
+}
+.color_default .scroller, .color_default.scorll-theme:after{
+	background: #555;
+}
+
+/* The bssCheck */
+.bssCheck {
+	float: left;
+	display: inline-block;
+	position: relative;
+	padding: 5px 10px;
+	padding-left: 35px;
+	margin: 12px 0;
+	margin-right: 4px;
+	cursor: pointer;
+	font-size: 18px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	border:solid #ccc;
+	border-radius: 100px;
+}
+.bssCheck:hover{
+	border:solid #4284f4;
+}
+
+/* Hide the browser's default checkbox */
+.bssCheck input {
+	position: absolute;
+	opacity: 0;
+	cursor: pointer;
+	height: 0;
+	width: 0;
+}
+
+/* Create a custom checkbox */
+.bssCheck .checkmark {
+	position: absolute;
+	top: 2px;
+	left: 3px;
+	height: 25px;
+	width: 25px;
+	background-color: #eee;
+	border-radius: 100%;
+}
+
+/* On mouse-over, add a grey background color */
+.bssCheck:hover input ~ .checkmark {
+	background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.bssCheck input:checked ~ .checkmark {
+	background-color: #4284f4;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.bssCheck .checkmark:after {
+	content: "";
+	position: absolute;
+	display: none;
+}
+
+/* Show the checkmark when checked */
+.bssCheck input:checked ~ .checkmark:after {
+	display: block;
+}
+
+/* Style the checkmark/indicator */
+.bssCheck .checkmark:after {
+	left: 9px;
+	top: 5px;
+	width: 5px;
+	height: 10px;
+	border: solid white;
+	border-width: 0 3px 3px 0;
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+
+.aloneProgress {
+	display: block;
+}
+
+/* Determinate: */
+
+.aloneProgress[value] {
+	/* style rules */
+}
+.aloneProgress[value]::-webkit-progress-bar {
+	/* style rules */
+}
+.aloneProgress[value]::-webkit-progress-value {
+	/* style rules */
+}
+.aloneProgress[value]::-moz-progress-bar {
+	/* style rules */
+}
+
+/* Indeterminate: */
+
+.aloneProgress:not([value]) {
+	/* style rules */
+}
+.aloneProgress:not([value])::-webkit-progress-bar {
+	/* style rules */
+}
+.aloneProgress:not([value])::-webkit-progress-value {
+	/* style rules */
+}
+.aloneProgress:not([value])::-moz-progress-bar {
+	/* style rules */
+}
+.aloneProgress{
+	display: none;
+width: 300px;
+margin: 5px 0;
+height: 20px;
+
+}
+.alone-disabled{
+	pointer-events: none;
+	opacity: 0.8;
+}
+.alone-disabled-options{
+	pointer-events: none;
+	opacity: 0.8;
+	filter: blur(2px);
+  -webkit-filter: blur(2px);
+}
+
+.generateCache{
+	background-color: #ffffff;
+  border: none;
+  color: #4284f4;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border: solid #4284f4;
+  font-size: 16px;
+}

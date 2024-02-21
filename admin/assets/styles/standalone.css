@@ -85,6 +85,10 @@
 	font-size: 13px;
 }
 
+.pluginIcon{
+	width: 100px !important;
+	height: 100px !important;
+}
 
 .tab-section .warning, .tab-section .success, .tab-section .info
 {

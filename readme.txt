@@ -1,11 +1,11 @@
 === All in one Minifier ===
 Contributors: maheshmthorat
 Donate Link: https://rzp.io/l/maheshmthorat
-Tags: minify, optimize, html, css, js, performance, pagespeed, compression, speed, optimized, all-in-one
+Tags: performance optimization, minify HTML, cache support, speed boost, all-in-one
 Requires at least: 4.5
 Requires PHP: 5.6
-Tested up to: 6.1.1
-Stable tag: 2.2
+Tested up to: 6.4.3
+Stable tag: 3.1
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -13,15 +13,20 @@ Reduce your page load by minify your HTML source on page with all the CSS and JS
 
 == Description ==
 
-All in one Minifier reduce your page load by minify your HTML source on page with all the CSS and JS code present in your page.
+All-in-One Minifier is the ultimate solution for boosting your WordPress site's performance. With our powerful plugin, you can effortlessly optimize your site's HTML, CSS, and JS code to significantly reduce page load times and improve user experience.
 
-== PLUGIN FEATURES ==
+== Key Features: ==
+* **Automatic Optimization:** Install and activate the plugin to enjoy automatic optimization of your site's code. Say goodbye to sluggish page load times and hello to lightning-fast performance.
 
-* Cache support for automatic optimization. Just install and serve fast websites.
-* It will surely minify your code to 100%.
-* Speed up by 30% to 50% page once.
-* Live page speed preview for frontend. Generate report without adding minify option to site for front users.
-* Free to install and use.
+* **Cache Support:** Our plugin comes with built-in cache support, ensuring that your optimizations are served quickly to visitors. Enjoy the benefits of a faster website without the hassle.
+
+* **100% Minification:** All-in-One Minifier guarantees 100% minification of your code, ensuring that unnecessary characters and whitespace are removed for optimal performance.
+
+* **Speed Boost:** Experience a noticeable speed boost of 30% to 50% on your website once you start using All-in-One Minifier. Keep your visitors engaged and satisfied with blazing-fast page loads.
+
+* **Live Page Speed Preview:** Get a real-time preview of your site's speed right from the frontend. Generate reports without needing to add minify options for front users, making optimization seamless and efficient.
+
+* **Free to Install and Use:** All-in-One Minifier is completely free to install and use, making it accessible to all WordPress users. Enjoy the benefits of a faster website without breaking the bank.
 
 == Installation ==
 
@@ -43,6 +48,13 @@ All in one Minifier reduce your page load by minify your HTML source on page wit
 4. A screenshot of the speed test in console.
 
 == Changelog ==
+
+= 3.1 =
+* Security Update
+
+= 3.0 =
+* Tested up to: 6.4.3
+* Improved performance, optimised page delivery.
 
 = 2.2 =
 * New: No need to create cache manually. Auto create cache when updating post / pages.

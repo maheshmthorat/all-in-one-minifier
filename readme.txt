@@ -5,7 +5,7 @@ Tags: performance optimization, minify HTML, cache support, speed boost, all-in-
 Requires at least: 4.5
 Requires PHP: 5.6
 Tested up to: 6.4.3
-Stable tag: 3.1
+Stable tag: 3.2
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -48,6 +48,9 @@ All-in-One Minifier is the ultimate solution for boosting your WordPress site's 
 4. A screenshot of the speed test in console.
 
 == Changelog ==
+
+= 3.2 =
+* FIX:Issue while generating cache when user loggedin.
 
 = 3.1 =
 * Security Update

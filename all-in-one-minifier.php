@@ -13,7 +13,7 @@
  * Plugin Name: All in one Minifier
  * Plugin URI: https://wordpress.org/plugins/all-in-one-minifier/
  * Description: Optimize your WordPress site's performance with All-in-One Minifier. Minify HTML, CSS, and JS code to reduce page load times by up to 50%. Easy installation and cache support for seamless optimization.
- * Version: 3.1
+ * Version: 3.2
  * Author: Mahesh Thorat
  * Author URI: https://maheshthorat.web.app
  **/

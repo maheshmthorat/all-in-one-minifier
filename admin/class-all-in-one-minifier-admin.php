@@ -6,7 +6,7 @@
  *
  * @author Mahesh Thorat
  * @link https://maheshthorat.web.app
- * @version 3.1
+ * @version 3.2
  * @package All_in_one_Minifier
  */
 class All_In_One_Minifier_Admin
@@ -17,21 +17,21 @@ class All_In_One_Minifier_Admin
 	public function _getJSReady()
 	{
 ?>
-		<script>
+		<script id="<?php echo esc_attr(AOMIN_PLUGIN_IDENTIFIER); ?>-inline-script">
 			let cacheCount = 0;
 			let oldBtnTxt;
 
 			function _buildCache(permalink, totalPost) {
-				jQuery('body').addClass('preparingCache');
+				document.body.classList.add('preparingCache');
 				fetch(permalink + '?is_minify=1')
-					.then(response => {
+					.then(function(response) {
 						if (response.ok) {
 							if (totalPost == -1) {
 								location.reload();
 							} else {
 								cacheCount++;
-								jQuery('title').html('Generating for ' + cacheCount + ' out of ' + totalPost + ' url(s)');
-								jQuery('.generateCache').html('Generated cache for <b>' + cacheCount + '</b> url(s) out of <b>' + totalPost + '</b> url(s)')
+								document.title = 'Generating for ' + cacheCount + ' out of ' + totalPost + ' url(s)';
+								document.querySelector('.generateCache').innerHTML = 'Generated cache for <b>' + cacheCount + '</b> url(s) out of <b>' + totalPost + '</b> url(s)';
 							}
 							if (totalPost == cacheCount) {
 								location.reload();
@@ -45,9 +45,10 @@ class All_In_One_Minifier_Admin
 							console.error('Failed to fetch:', response.statusText);
 						}
 					})
-					.catch(error => {
+					.catch(function(error) {
 						console.error('Fetch error:', error);
 					});
+
 			}
 
 			<?php
@@ -55,18 +56,19 @@ class All_In_One_Minifier_Admin
 			?>
 
 				function _runCache() {
-					jQuery('.generateCache').blur();
-					jQuery('.aloneProgress').show();
-					jQuery('.generateCache').addClass('alone-disabled');
-					oldBtnTxt = jQuery('.generateCache').html();
-					jQuery('.generateCache').html('Generating cache for <b>' + allPostData.length + '</b> urls')
+					document.querySelector('.generateCache').blur();
+					document.querySelector('.aloneProgress').style.display = 'block';
+					document.querySelector('.generateCache').classList.add('alone-disabled');
+					oldBtnTxt = document.querySelector('.generateCache').innerHTML;
+					document.querySelector('.generateCache').innerHTML = 'Generating cache for <b>' + allPostData.length + '</b> urls';
 					_buildCache(allPostData[0].post, allPostData.length);
 				}
+
 			<?php
 			}
 			?>
 		</script>
-		<style>
+		<style id="<?php echo esc_attr(AOMIN_PLUGIN_IDENTIFIER); ?>-inline-style">
 			.preparingCache {
 				opacity: 0.5;
 				pointer-events: none;
@@ -517,25 +519,28 @@ class All_In_One_Minifier_Admin
 											$postID = get_the_ID();
 											$post_title = get_the_title();
 											$current_queried_post_type = get_post_type($postID);
+											$post_slug = All_In_One_Minifier_Core::parseURL(get_permalink());
 
 											$docBeforeTimePrint = '';
 											$docAfterTimePrint = '';
 											$af_docBeforeTime = '';
 											$af_docAfterTime = '';
 
-											global $wpdb;
-											$table_name = $wpdb->prefix . 'alone_minifier_analysis';
-											$pageposts_1 = $wpdb->get_results("SELECT postID, docBeforeTime, docAfterTime, minifyStatus, datetime FROM $table_name WHERE postID = $postID ORDER BY minifyStatus");
-											foreach ($pageposts_1 as $value_1) {
-												$docBeforeTime = $value_1->docBeforeTime;
-												$docAfterTime = $value_1->docAfterTime;
-												$datetime = $value_1->datetime;
+											if (file_exists(AOMIN_PLUGIN_ABS_CACHE_PATH . $post_slug . '.html')) {
+												global $wpdb;
+												$table_name = $wpdb->prefix . 'alone_minifier_analysis';
+												$pageposts_1 = $wpdb->get_results("SELECT postID, docBeforeTime, docAfterTime, minifyStatus, datetime FROM $table_name WHERE postID = $postID ORDER BY minifyStatus");
+												foreach ($pageposts_1 as $value_1) {
+													$docBeforeTime = $value_1->docBeforeTime;
+													$docAfterTime = $value_1->docAfterTime;
+													$datetime = $value_1->datetime;
 
-												$af_docBeforeTime = $docBeforeTime;
-												$af_docAfterTime = $docAfterTime;
+													$af_docBeforeTime = $docBeforeTime;
+													$af_docAfterTime = $docAfterTime;
 
-												$docBeforeTimePrint .= '<span>Before</span> : <span class="right"><b>' . esc_attr($this->AIOMformatSizeUnits($docBeforeTime)) . '</b></span>';
-												$docAfterTimePrint .= '<span>After</span> : <span class="right"><b>' . esc_attr($this->AIOMformatSizeUnits($docAfterTime)) . '</b></span>';
+													$docBeforeTimePrint .= '<span>Before</span> : <span class="right"><b>' . esc_attr($this->AIOMformatSizeUnits($docBeforeTime)) . '</b></span>';
+													$docAfterTimePrint .= '<span>After</span> : <span class="right"><b>' . esc_attr($this->AIOMformatSizeUnits($docAfterTime)) . '</b></span>';
+												}
 											}
 											$minifiedPerComp = '';
 											$minifiedPerPrint = '';

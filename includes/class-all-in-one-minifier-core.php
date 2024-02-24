@@ -6,7 +6,7 @@
  *
  * @author Mahesh Thorat
  * @link https://maheshthorat.web.app
- * @version 3.1
+ * @version 3.2
  * @package All_in_one_Minifier
  */
 class All_In_One_Minifier_Core
@@ -28,6 +28,21 @@ class All_In_One_Minifier_Core
    {
       $this->plugin_name = AOMIN_PLUGIN_IDENTIFIER;
       $this->version = AOMIN_PLUGIN_VERSION;
+   }
+
+   public static function parseURL($parsed_url)
+   {
+      $parsed_url = wp_parse_url($parsed_url);
+      $path = isset($parsed_url['path']) ? $parsed_url['path'] : '';
+      if (empty($path)) {
+         $post_slug = 'index';
+      } else {
+         $post_slug = trim($path, '/');
+      }
+      if ($post_slug == '') {
+         $post_slug = 'index';
+      }
+      return $post_slug;
    }
    public function run()
    {
@@ -81,21 +96,6 @@ class All_In_One_Minifier_Core
          return $buffer;
       }
 
-      function parseURL($parsed_url)
-      {
-         $parsed_url = wp_parse_url($parsed_url);
-         $path = isset($parsed_url['path']) ? $parsed_url['path'] : '';
-         if (empty($path)) {
-            $post_slug = 'index';
-         } else {
-            $post_slug = trim($path, '/');
-         }
-         if ($post_slug == '') {
-            $post_slug = 'index';
-         }
-         return $post_slug;
-      }
-
       if (!is_admin()) {
          $opts = get_option('_all-in-one_minifier');
          if (isset($opts['start_minify']) && $opts['start_minify'] == 'on' && (!(defined('WP_CLI') && WP_CLI))) {
@@ -104,59 +104,79 @@ class All_In_One_Minifier_Core
                $host = $_SERVER['HTTP_HOST'];
                $request_uri = $_SERVER['REQUEST_URI'];
                $parsed_url = ($is_https ? 'https://' : 'http://') . $host . $request_uri;
-               $post_slug = parseURL($parsed_url);
+               $post_slug = self::parseURL($parsed_url);
 
-               if ((file_exists(AOMIN_PLUGIN_ABS_CACHE_PATH . $post_slug . '.html') && filesize(AOMIN_PLUGIN_ABS_CACHE_PATH . $post_slug . '.html') > 0) && @$_GET['is_minify'] == false) {
+               if ((file_exists(AOMIN_PLUGIN_ABS_CACHE_PATH . $post_slug . '.html') && filesize(AOMIN_PLUGIN_ABS_CACHE_PATH . $post_slug . '.html') > 0) && @$_GET['is_minify'] == false && !isset($_COOKIE['wordpress_logged_in_' . COOKIEHASH])) {
                   include AOMIN_PLUGIN_ABS_CACHE_PATH . $post_slug . '.html';
                   exit;
                } else {
-                  ob_start();
-                  add_action('shutdown', function () {
-                     $post_id = get_the_ID();
-                     if (empty($post_id)) {
-                        return;
-                     }
-                     if (!is_singular()) {
-                        $postType = get_post_type($post_id);
-                        if ($postType != 'page') {
-                           $post_id = get_option('page_for_posts');
+                  $currentUser = 0;
+                  if (isset($_GET['is_minify']) || !isset($_COOKIE['wordpress_logged_in_' . COOKIEHASH])) {
+                     add_action('init', 'logout_user_at_start_of_hooks');
+                     function logout_user_at_start_of_hooks()
+                     {
+                        global $currentUser;
+                        if (is_user_logged_in()) {
+                           $currentUser = get_current_user_id();
+                           wp_logout();
                         }
                      }
-                     if ($post_id > 0) {
-                        $parsed_url = get_permalink($post_id);
-                        $post_slug = parseURL($parsed_url);
-
-                        $final = '';
-                        $levels = ob_get_level();
-                        for ($i = 0; $i < $levels; $i++) {
-                           $final .= ob_get_clean();
+                     ob_start();
+                     add_action('shutdown', function () {
+                        global $currentUser;
+                        if (!empty($currentUser)) {
+                           $user = get_user_by('id', $currentUser);
+                           wp_set_current_user($currentUser, $user->user_login);
+                           wp_set_auth_cookie($currentUser);
+                           do_action('wp_login', $user->user_login);
                         }
-                        echo $content = apply_filters('final_output', $final);
-                        if (!empty($content)) {
-                           $directory_path = pathinfo(AOMIN_PLUGIN_ABS_CACHE_PATH . $post_slug, PATHINFO_DIRNAME);
-                           if (!file_exists($directory_path)) {
-                              wp_mkdir_p($directory_path);
-                           }
 
-                           $withoutSanitize = file_put_contents(AOMIN_PLUGIN_ABS_CACHE_PATH . $post_slug . "-without.html", $content);
-
-                           wp_delete_file(AOMIN_PLUGIN_ABS_CACHE_PATH . $post_slug . "-without.html");
-                           $withSanitize = file_put_contents(AOMIN_PLUGIN_ABS_CACHE_PATH . $post_slug . ".html", sanitize_output($content));
-
-                           global $wpdb;
-                           $datetime = gmdate('Y-m-d H:i:s');
-                           $minifyStatus = 1;
-                           $table_name = $wpdb->prefix . 'alone_minifier_analysis';
-                           $querystr = "SELECT postID FROM $table_name WHERE postID = $post_id LIMIT 1 ";
-                           $pageposts = $wpdb->get_results($querystr);
-                           if (count($pageposts) > 0) {
-                              $wpdb->query($wpdb->prepare("UPDATE $table_name SET docBeforeTime = '$withoutSanitize', docAfterTime = '$withSanitize', datetime = '$datetime' WHERE postID = $post_id AND minifyStatus = $minifyStatus "));
-                           } else {
-                              $wpdb->insert($table_name, array('postID' => $post_id, 'minifyStatus' => $minifyStatus, 'docBeforeTime' => $withoutSanitize, 'docAfterTime' => $withSanitize, 'datetime' => $datetime));
+                        $post_id = get_the_ID();
+                        if (empty($post_id)) {
+                           return;
+                        }
+                        if (!is_singular()) {
+                           $postType = get_post_type($post_id);
+                           if ($postType != 'page') {
+                              $post_id = get_option('page_for_posts');
                            }
                         }
-                     }
-                  }, 0);
+                        if ($post_id > 0) {
+                           $parsed_url = get_permalink($post_id);
+                           $post_slug = self::parseURL($parsed_url);
+
+                           $final = '';
+                           $levels = ob_get_level();
+                           for ($i = 0; $i < $levels; $i++) {
+                              $final .= ob_get_clean();
+                           }
+                           echo $content = apply_filters('final_output', $final);
+                           if (!empty($content)) {
+                              $directory_path = pathinfo(AOMIN_PLUGIN_ABS_CACHE_PATH . $post_slug, PATHINFO_DIRNAME);
+                              if (!file_exists($directory_path)) {
+                                 wp_mkdir_p($directory_path);
+                              }
+
+                              $withoutSanitize = file_put_contents(AOMIN_PLUGIN_ABS_CACHE_PATH . $post_slug . "-without.html", $content);
+
+                              wp_delete_file(AOMIN_PLUGIN_ABS_CACHE_PATH . $post_slug . "-without.html");
+                              $withSanitize = file_put_contents(AOMIN_PLUGIN_ABS_CACHE_PATH . $post_slug . ".html", sanitize_output($content));
+
+                              global $wpdb;
+                              $datetime = gmdate('Y-m-d H:i:s');
+                              $minifyStatus = 1;
+                              $table_name = $wpdb->prefix . 'alone_minifier_analysis';
+                              $querystr = "SELECT postID FROM $table_name WHERE postID = $post_id LIMIT 1 ";
+                              $pageposts = $wpdb->get_results($querystr);
+                              if (count($pageposts) > 0) {
+                                 $wpdb->query($wpdb->prepare("UPDATE $table_name SET docBeforeTime = '$withoutSanitize', docAfterTime = '$withSanitize', datetime = '$datetime' WHERE postID = $post_id AND minifyStatus = $minifyStatus "));
+                              } else {
+                                 $wpdb->insert($table_name, array('postID' => $post_id, 'minifyStatus' => $minifyStatus, 'docBeforeTime' => $withoutSanitize, 'docAfterTime' => $withSanitize, 'datetime' => $datetime));
+                              }
+                           }
+                        }
+                     }, 0);
+                  }
                }
             }
          }

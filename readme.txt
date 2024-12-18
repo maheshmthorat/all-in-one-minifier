@@ -1,10 +1,10 @@
 === All in one Minifier ===
 Contributors: maheshmthorat
-Donate Link: https://rzp.io/l/maheshmthorat
+Donate Link: https://buymeacoffee.com/maheshmthorat
 Tags: performance optimization, minify HTML, cache support, speed boost, all-in-one
 Requires at least: 4.5
 Requires PHP: 5.6
-Tested up to: 6.6
+Tested up to: 6.6.2
 Stable tag: 3.2
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html

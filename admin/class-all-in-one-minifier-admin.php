@@ -6,7 +6,7 @@
  *
  * @author Mahesh Thorat
  * @link https://maheshthorat.web.app
- * @version 3.2
+ * @version 3.3
  * @package All_in_one_Minifier
  */
 class All_In_One_Minifier_Admin

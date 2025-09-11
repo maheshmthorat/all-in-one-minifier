@@ -13,7 +13,7 @@
  * Plugin Name: All in one Minifier
  * Plugin URI: https://wordpress.org/plugins/all-in-one-minifier/
  * Description: Optimize your WordPress site's performance with All-in-One Minifier. Minify HTML, CSS, and JS code to reduce page load times by up to 50%. Easy installation and cache support for seamless optimization.
- * Version: 3.2
+ * Version: 3.3
  * Author: Mahesh Thorat
  * Author URI: https://maheshthorat.web.app
  **/
@@ -30,7 +30,7 @@ if ((!defined('ABSPATH')) || ('all-in-one-minifier.php' == basename($_SERVER['SC
  */
 define('AOMIN_PLUGIN_FULLNAME', 'All in one Minifier');
 define('AOMIN_PLUGIN_IDENTIFIER', 'all-in-one-minifier');
-define('AOMIN_PLUGIN_VERSION', '3.1');
+define('AOMIN_PLUGIN_VERSION', '3.3');
 define('AOMIN_PLUGIN_LAST_RELEASE', '2022/04/10');
 define('AOMIN_PLUGIN_LANGUAGES', 'English');
 define('AOMIN_PLUGIN_ABS_PATH', plugin_dir_path(__FILE__));

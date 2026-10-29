@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<!--[if lt IE 9]><html class="ie"><![endif]-->
+<!--[if gte IE 9]><!--><html lang="en"><!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<title>  Tricky   document  &amp; entities  </title>
+	<!-- a regular comment -->
+	<style>
+		/* comment */
+		.a  >  .b { color : red ; }
+		pre.poem { white-space: pre; }
+	</style>
+	<script type="application/ld+json">
+	{ "@context": "https://schema.org", "name": "A   B", "nested": { "list": [1, 2,   3] } }
+	</script>
+	<script type="importmap">{ "imports": { "x": "/x.js" } }</script>
+	<script>
+		// legacy escape: the inner </script> must not end this element
+		<!-- document.write("<script>var inner = 1;</script>"); -->
+		var s = "</scr" + "ipt>";   if (a < b && c > d) { go(); }
+	</script>
+	<noscript><style>.js-only { display: none }</style></noscript>
+</head>
+<body class="home  page">
+	<a href=foo"bar title=x>stray quote in unquoted value</a>
+	<a href=/path/ class=a>unquoted with slash</a>
+	<img src=x.png alt="multi
+	line   alt" />
+	<input type="text" value="  keep   spaces  " data-json='{"a": "b  c"}'>
+	<p>Paragraph   one
+	<p>Paragraph two (implied end tag)   <b>bold</b>   <i>italic</i>
+	<pre>  preformatted
+	    indentation   kept  <b>  bold  </b>
+	</pre>
+	<pre><code>nested   code
+	  block</code></pre>
+	<PRE>UPPER  CASE  PRE</PRE>
+	<div style="white-space: pre-wrap">  inline   style   pre-wrap  </div>
+	<pre class="poem">poem   class  (needs preserve_classes to be exact)</pre>
+	<textarea name="t">  textarea
+	  content  </textarea>
+	<p>Inline <code>a  =  b</code> and <kbd>Ctrl  +  C</kbd>.</p>
+	<ul class="inline-block-menu">
+		<li>One</li>
+		<li>Two</li>
+	</ul>
+	<table>
+		<thead> <tr> <th>A</th> <th>B</th> </tr> </thead>
+		<tbody>
+			<tr><td> 1 </td><td>2</td></tr>
+		</tbody>
+	</table>
+	<select name="s">
+		<option value="1">  One  </option>
+		<option value="2" selected>Two</option>
+	</select>
+	<template id="tpl">
+		<div class="card">   {{ title }}   </div>
+	</template>
+	<script type="text/template" id="underscore">  <div>  <%= name %>  </div>  </script>
+	<div x-data="{ open: false }" @click.outside="open = false" :class="{ 'is-open': open }">alpine</div>
+	<div v-if="show" v-bind:title="msg">vue</div>
+	<iframe srcdoc="<p>  srcdoc  </p>" title="t"></iframe>
+	<svg width="100" height="40" viewBox="0 0 100 40">
+		<style><![CDATA[ .t { fill: red } ]]></style>
+		<text x="0" y="20">  SVG   text  </text>
+		<foreignObject width="10" height="10"><p>  html in svg  </p></foreignObject>
+		<path d="M 0 0 L 10   10"/>
+	</svg>
+	<math><mi>x</mi> <mo>=</mo> <mn>1</mn></math>
+	<p>Entities: &nbsp;&nbsp; &lt;tag&gt; &amp;amp; &#x27;q&#x27;</p>
+	<p>a<!-- removed -->b and c <!-- removed --> d</p>
+	<p>empty comments<!----> and react <!-- --> separators</p>
+	<!-->
+	<!--->
+	<p>3 < 4 and 5 > 4</p>
+	<script>
+		document.write('<p>written</p>');
+		var re = /<\/script>/; // regex with escaped end tag
+	</script>
+	<script type="module">import { a } from "/a.js"; a();</script>
+	<script nomodule src="/legacy.js"></script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+{"label": "baseline-no-plugin", "path": "/", "status": 200, "bytes": 70486, "median_ms": 115.3, "p90_ms": 130.9, "runs": 15, "time": 1793258942}
+{"label": "baseline-no-plugin", "path": "/code-samples/", "status": 200, "bytes": 75082, "median_ms": 104.2, "p90_ms": 115.4, "runs": 15, "time": 1793258944}
+{"label": "baseline-no-plugin", "path": "/blog/", "status": 200, "bytes": 82134, "median_ms": 123.6, "p90_ms": 143.8, "runs": 15, "time": 1793258948}
+{"label": "baseline-no-plugin", "path": "/sample-post-1/", "status": 200, "bytes": 76627, "median_ms": 137.4, "p90_ms": 152.1, "runs": 15, "time": 1793258951}
+{"label": "baseline-no-plugin", "path": "/shop/", "status": 200, "bytes": 99402, "median_ms": 146.3, "p90_ms": 159.4, "runs": 15, "time": 1793258955}
+{"label": "baseline-no-plugin", "path": "/contact/", "status": 200, "bytes": 75296, "median_ms": 93.1, "p90_ms": 103.7, "runs": 15, "time": 1793258957}
+{"label": "legacy-3.3-warm", "path": "/", "status": 200, "bytes": 70663, "median_ms": 4.8, "p90_ms": 5.2, "runs": 15, "time": 1793258973}
+{"label": "legacy-3.3-warm", "path": "/code-samples/", "status": 200, "bytes": 74747, "median_ms": 4.8, "p90_ms": 5.6, "runs": 15, "time": 1793258974}
+{"label": "legacy-3.3-warm", "path": "/blog/", "status": 200, "bytes": 98366, "median_ms": 4.6, "p90_ms": 5.0, "runs": 15, "time": 1793258975}
+{"label": "legacy-3.3-warm", "path": "/sample-post-1/", "status": 200, "bytes": 76546, "median_ms": 5.0, "p90_ms": 5.1, "runs": 15, "time": 1793258976}
+{"label": "legacy-3.3-warm", "path": "/shop/", "status": 200, "bytes": 100776, "median_ms": 137.8, "p90_ms": 153.0, "runs": 15, "time": 1793258979}
+{"label": "legacy-3.3-warm", "path": "/contact/", "status": 200, "bytes": 75478, "median_ms": 4.7, "p90_ms": 5.5, "runs": 15, "time": 1793258980}
+{"label": "v4-recommended", "path": "/", "status": 200, "bytes": 97640, "median_ms": 113.0, "p90_ms": 118.4, "runs": 25, "time": 1793262017}
+{"label": "v4-recommended", "path": "/code-samples/", "status": 200, "bytes": 102677, "median_ms": 106.5, "p90_ms": 114.9, "runs": 25, "time": 1793262022}
+{"label": "v4-recommended", "path": "/blog/", "status": 200, "bytes": 109361, "median_ms": 114.9, "p90_ms": 121.8, "runs": 25, "time": 1793262027}
+{"label": "v4-recommended", "path": "/sample-post-1/", "status": 200, "bytes": 103287, "median_ms": 119.1, "p90_ms": 126.5, "runs": 25, "time": 1793262031}
+{"label": "v4-recommended", "path": "/shop/", "status": 200, "bytes": 143032, "median_ms": 141.6, "p90_ms": 147.6, "runs": 25, "time": 1793262037}
+{"label": "v4-recommended", "path": "/contact/", "status": 200, "bytes": 102974, "median_ms": 107.3, "p90_ms": 118.1, "runs": 25, "time": 1793262041}
+{"label": "baseline-no-plugin-2", "path": "/", "status": 200, "bytes": 103628, "median_ms": 97.7, "p90_ms": 100.2, "runs": 25, "time": 1793262047}
+{"label": "baseline-no-plugin-2", "path": "/code-samples/", "status": 200, "bytes": 108327, "median_ms": 94.6, "p90_ms": 97.0, "runs": 25, "time": 1793262052}
+{"label": "baseline-no-plugin-2", "path": "/blog/", "status": 200, "bytes": 115233, "median_ms": 102.8, "p90_ms": 110.8, "runs": 25, "time": 1793262056}
+{"label": "baseline-no-plugin-2", "path": "/sample-post-1/", "status": 200, "bytes": 109769, "median_ms": 106.2, "p90_ms": 115.9, "runs": 25, "time": 1793262061}
+{"label": "baseline-no-plugin-2", "path": "/shop/", "status": 200, "bytes": 151169, "median_ms": 127.7, "p90_ms": 140.8, "runs": 25, "time": 1793262066}
+{"label": "baseline-no-plugin-2", "path": "/contact/", "status": 200, "bytes": 108438, "median_ms": 111.6, "p90_ms": 125.6, "runs": 25, "time": 1793262071}
+{"label": "baseline-no-plugin-3", "path": "/", "status": 200, "bytes": 103628, "median_ms": 96.2, "p90_ms": 101.6, "total_median_ms": 108.8, "runs": 25, "time": 1793262105}
+{"label": "baseline-no-plugin-3", "path": "/code-samples/", "status": 200, "bytes": 108327, "median_ms": 94.7, "p90_ms": 101.6, "total_median_ms": 107.6, "runs": 25, "time": 1793262109}
+{"label": "baseline-no-plugin-3", "path": "/blog/", "status": 200, "bytes": 115233, "median_ms": 103.8, "p90_ms": 108.3, "total_median_ms": 116.7, "runs": 25, "time": 1793262114}
+{"label": "baseline-no-plugin-3", "path": "/sample-post-1/", "status": 200, "bytes": 109769, "median_ms": 105.6, "p90_ms": 111.7, "total_median_ms": 117.6, "runs": 25, "time": 1793262118}
+{"label": "baseline-no-plugin-3", "path": "/shop/", "status": 200, "bytes": 151169, "median_ms": 127.3, "p90_ms": 137.0, "total_median_ms": 140.2, "runs": 25, "time": 1793262124}
+{"label": "baseline-no-plugin-3", "path": "/contact/", "status": 200, "bytes": 108438, "median_ms": 93.1, "p90_ms": 96.9, "total_median_ms": 104.7, "runs": 25, "time": 1793262128}
+{"label": "v4-recommended-2", "path": "/", "status": 200, "bytes": 97640, "median_ms": 111.5, "p90_ms": 116.7, "total_median_ms": 112.6, "runs": 25, "time": 1793262135}
+{"label": "v4-recommended-2", "path": "/code-samples/", "status": 200, "bytes": 102677, "median_ms": 105.7, "p90_ms": 114.7, "total_median_ms": 106.8, "runs": 25, "time": 1793262139}
+{"label": "v4-recommended-2", "path": "/blog/", "status": 200, "bytes": 109361, "median_ms": 116.4, "p90_ms": 122.1, "total_median_ms": 117.9, "runs": 25, "time": 1793262144}
+{"label": "v4-recommended-2", "path": "/sample-post-1/", "status": 200, "bytes": 103287, "median_ms": 121.6, "p90_ms": 131.8, "total_median_ms": 123.0, "runs": 25, "time": 1793262149}
+{"label": "v4-recommended-2", "path": "/shop/", "status": 200, "bytes": 143032, "median_ms": 141.1, "p90_ms": 147.7, "total_median_ms": 142.2, "runs": 25, "time": 1793262154}
+{"label": "v4-recommended-2", "path": "/contact/", "status": 200, "bytes": 102974, "median_ms": 107.3, "p90_ms": 116.0, "total_median_ms": 108.5, "runs": 25, "time": 1793262159}
+{"label": "v4-page-cache", "path": "/", "status": 200, "bytes": 97640, "median_ms": 4.9, "p90_ms": 5.9, "total_median_ms": 5.4, "runs": 25, "time": 1793262188}
+{"label": "v4-page-cache", "path": "/code-samples/", "status": 200, "bytes": 102677, "median_ms": 4.8, "p90_ms": 5.3, "total_median_ms": 5.0, "runs": 25, "time": 1793262190}
+{"label": "v4-page-cache", "path": "/blog/", "status": 200, "bytes": 109361, "median_ms": 4.8, "p90_ms": 5.1, "total_median_ms": 5.1, "runs": 25, "time": 1793262191}
+{"label": "v4-page-cache", "path": "/sample-post-1/", "status": 200, "bytes": 103287, "median_ms": 4.8, "p90_ms": 5.5, "total_median_ms": 5.1, "runs": 25, "time": 1793262193}
+{"label": "v4-page-cache", "path": "/shop/", "status": 200, "bytes": 143032, "median_ms": 4.8, "p90_ms": 5.1, "total_median_ms": 5.1, "runs": 25, "time": 1793262194}
+{"label": "v4-page-cache", "path": "/contact/", "status": 200, "bytes": 102974, "median_ms": 4.8, "p90_ms": 5.3, "total_median_ms": 5.0, "runs": 25, "time": 1793262196}
+{"label": "final-no-plugin", "path": "/", "status": 200, "bytes": 69233, "median_ms": 79.6, "p90_ms": 89.1, "total_median_ms": 81.2, "runs": 25, "time": 1793265462}
+{"label": "final-no-plugin", "path": "/code-samples/", "status": 200, "bytes": 58219, "median_ms": 79.5, "p90_ms": 84.4, "total_median_ms": 80.8, "runs": 25, "time": 1793265466}
+{"label": "final-no-plugin", "path": "/blog/", "status": 200, "bytes": 89912, "median_ms": 84.6, "p90_ms": 99.9, "total_median_ms": 86.0, "runs": 25, "time": 1793265470}
+{"label": "final-no-plugin", "path": "/sample-post-1/", "status": 200, "bytes": 64799, "median_ms": 81.6, "p90_ms": 89.3, "total_median_ms": 83.1, "runs": 25, "time": 1793265473}
+{"label": "final-no-plugin", "path": "/shop/", "status": 200, "bytes": 59199, "median_ms": 85.6, "p90_ms": 101.8, "total_median_ms": 87.7, "runs": 25, "time": 1793265477}
+{"label": "final-no-plugin", "path": "/contact/", "status": 200, "bytes": 57968, "median_ms": 84.2, "p90_ms": 105.5, "total_median_ms": 85.6, "runs": 25, "time": 1793265481}
+{"label": "final-legacy-3.3", "path": "/", "status": 200, "bytes": 37081, "median_ms": 5.0, "p90_ms": 5.8, "total_median_ms": 5.4, "runs": 25, "time": 1793265492}
+{"label": "final-legacy-3.3", "path": "/code-samples/", "status": 200, "bytes": 35765, "median_ms": 5.2, "p90_ms": 5.7, "total_median_ms": 5.4, "runs": 25, "time": 1793265493}
+{"label": "final-legacy-3.3", "path": "/blog/", "status": 200, "bytes": 47308, "median_ms": 5.0, "p90_ms": 5.3, "total_median_ms": 5.2, "runs": 25, "time": 1793265495}
+{"label": "final-legacy-3.3", "path": "/sample-post-1/", "status": 200, "bytes": 42486, "median_ms": 5.4, "p90_ms": 6.3, "total_median_ms": 5.5, "runs": 25, "time": 1793265496}
+{"label": "final-legacy-3.3", "path": "/shop/", "status": 200, "bytes": 49945, "median_ms": 104.7, "p90_ms": 125.8, "total_median_ms": 108.4, "runs": 25, "time": 1793265501}
+{"label": "final-legacy-3.3", "path": "/contact/", "status": 200, "bytes": 37038, "median_ms": 5.0, "p90_ms": 6.1, "total_median_ms": 5.4, "runs": 25, "time": 1793265503}
+{"label": "final-v4-recommended", "path": "/", "status": 200, "bytes": 65135, "median_ms": 83.2, "p90_ms": 87.8, "total_median_ms": 84.9, "runs": 25, "time": 1793265518}
+{"label": "final-v4-recommended", "path": "/code-samples/", "status": 200, "bytes": 54408, "median_ms": 82.9, "p90_ms": 92.8, "total_median_ms": 84.4, "runs": 25, "time": 1793265521}
+{"label": "final-v4-recommended", "path": "/blog/", "status": 200, "bytes": 83322, "median_ms": 91.5, "p90_ms": 115.2, "total_median_ms": 93.1, "runs": 25, "time": 1793265526}
+{"label": "final-v4-recommended", "path": "/sample-post-1/", "status": 200, "bytes": 60637, "median_ms": 84.0, "p90_ms": 92.4, "total_median_ms": 85.7, "runs": 25, "time": 1793265529}
+{"label": "final-v4-recommended", "path": "/shop/", "status": 200, "bytes": 56580, "median_ms": 87.0, "p90_ms": 95.8, "total_median_ms": 88.6, "runs": 25, "time": 1793265533}
+{"label": "final-v4-recommended", "path": "/contact/", "status": 200, "bytes": 54416, "median_ms": 85.4, "p90_ms": 99.0, "total_median_ms": 86.8, "runs": 25, "time": 1793265537}
+{"label": "final-v4-page-cache", "path": "/", "status": 200, "bytes": 65135, "median_ms": 5.2, "p90_ms": 5.8, "total_median_ms": 5.6, "runs": 25, "time": 1793265544}
+{"label": "final-v4-page-cache", "path": "/code-samples/", "status": 200, "bytes": 54408, "median_ms": 5.3, "p90_ms": 6.6, "total_median_ms": 5.5, "runs": 25, "time": 1793265546}
+{"label": "final-v4-page-cache", "path": "/blog/", "status": 200, "bytes": 83322, "median_ms": 5.2, "p90_ms": 6.3, "total_median_ms": 5.4, "runs": 25, "time": 1793265547}
+{"label": "final-v4-page-cache", "path": "/sample-post-1/", "status": 200, "bytes": 60637, "median_ms": 5.0, "p90_ms": 5.9, "total_median_ms": 5.2, "runs": 25, "time": 1793265549}
+{"label": "final-v4-page-cache", "path": "/shop/", "status": 200, "bytes": 56580, "median_ms": 4.9, "p90_ms": 5.6, "total_median_ms": 5.2, "runs": 25, "time": 1793265550}
+{"label": "final-v4-page-cache", "path": "/contact/", "status": 200, "bytes": 54416, "median_ms": 5.0, "p90_ms": 5.6, "total_median_ms": 5.2, "runs": 25, "time": 1793265552}

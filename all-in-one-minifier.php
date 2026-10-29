@@ -1,56 +1,38 @@
 <?php
-
 /**
- * This file is read by WordPress to generate the plugin information in the plugin
- * admin area. This file also includes all of the dependencies used by the plugin,
- * registers the activation and deactivation functions, and defines a function
- * that starts the plugin.
+ * Plugin Name:       All in one Minifier
+ * Plugin URI:        https://wordpress.org/plugins/all-in-one-minifier/
+ * Description:       Safe HTML, CSS and JavaScript minification with versioned file caching, an optional page cache, dependency-aware script deferral and measured before/after reports.
+ * Version:           4.0.0
+ * Requires at least: 6.3
+ * Requires PHP:      7.4
+ * Author:            Mahesh Thorat
+ * Author URI:        https://maheshthorat.web.app
+ * License:           GPLv3
+ * License URI:       https://www.gnu.org/licenses/gpl-3.0.html
+ * Text Domain:       all-in-one-minifier
  *
- * @link              https://maheshthorat.web.app
- * @since             0.1
- * @package           All_in_one_Minifier
- *
- * Plugin Name: All in one Minifier
- * Plugin URI: https://wordpress.org/plugins/all-in-one-minifier/
- * Description: Optimize your WordPress site's performance with All-in-One Minifier. Minify HTML, CSS, and JS code to reduce page load times by up to 50%. Easy installation and cache support for seamless optimization.
- * Version: 3.3
- * Author: Mahesh Thorat
- * Author URI: https://maheshthorat.web.app
- **/
-
-/**
- * Prevent file to be called directly
+ * @package All_In_One_Minifier
  */
-if ((!defined('ABSPATH')) || ('all-in-one-minifier.php' == basename($_SERVER['SCRIPT_FILENAME']))) {
-	die;
+
+defined( 'ABSPATH' ) || exit;
+
+if ( defined( 'AIOM_VERSION' ) ) {
+	return;
 }
 
-/**
- * Define Constants
- */
-define('AOMIN_PLUGIN_FULLNAME', 'All in one Minifier');
-define('AOMIN_PLUGIN_IDENTIFIER', 'all-in-one-minifier');
-define('AOMIN_PLUGIN_VERSION', '3.3');
-define('AOMIN_PLUGIN_LAST_RELEASE', '2022/04/10');
-define('AOMIN_PLUGIN_LANGUAGES', 'English');
-define('AOMIN_PLUGIN_ABS_PATH', plugin_dir_path(__FILE__));
-define('AOMIN_PLUGIN_ABS_CACHE_PATH', ABSPATH . "/wp-content/cache/alone_minifier/");
+define( 'AIOM_VERSION', '4.0.0' );
+define( 'AIOM_FILE', __FILE__ );
+define( 'AIOM_DIR', plugin_dir_path( __FILE__ ) );
+define( 'AIOM_URL', plugin_dir_url( __FILE__ ) );
 
-/**
- * The core plugin class that is used to define internationalization
- * admin-specific hooks and public-facing site hooks
- */
-require AOMIN_PLUGIN_ABS_PATH . 'includes/class-all-in-one-minifier-core.php';
+require_once AIOM_DIR . 'includes/class-aiom-autoloader.php';
+AIOM_Autoloader::register( AIOM_DIR );
 
+register_activation_hook( __FILE__, array( 'AIOM_Install', 'activate' ) );
+register_deactivation_hook( __FILE__, array( 'AIOM_Install', 'deactivate' ) );
 
-/**
- * Begins execution of the plugin
- */
-if (!function_exists('run_all_in_one_minifier')) {
-	function run_all_in_one_minifier()
-	{
-		$plugin = new All_In_One_Minifier_Core();
-		$plugin->run();
-	}
-	run_all_in_one_minifier();
-}
+// The optional page cache answers before the theme and remaining plugins run.
+AIOM_Page_Cache::serve();
+
+AIOM_Plugin::boot();
